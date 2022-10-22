@@ -30,34 +30,42 @@ class _MyAppState extends State<MyApp> {
           title: const Text('sasta tesla'),
         ),
         body: Card(
-          child: SizedBox(
-            width: 300,
-            height: 56,
-            child: Column(
-              children: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Games()),
-                    );
-                  },
-                  child: const Text('Games'),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Info()),
-                    );
-                  },
-                  child: const Text('Learn more'),
-                ),
-              ],
-            ),
+          child: Flex(
+            direction: Axis.horizontal,
+            children: <Widget>[
+              Column(
+                children: [
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.black,
+                      backgroundColor: Colors.primaries[0],
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Games()),
+                      );
+                    },
+                    child: const Text('Games'),
+                  ),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.black,
+                      backgroundColor: Colors.primaries[0],
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Info()),
+                      );
+                    },
+                    child: const Text('Learn more'),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
-        
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
@@ -103,11 +111,9 @@ class _GamesState extends State<Games> {
           child: const Text('20 questions'),
         ),
       ),
-      
     );
   }
 }
-
 
 class Info extends StatefulWidget {
   const Info({super.key});
