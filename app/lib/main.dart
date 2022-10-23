@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:window_style_dropdown_menu/window_style_dropdown_menu.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -29,62 +30,123 @@ class _MyAppState extends State<MyApp> {
           backgroundColor: Colors.blueGrey[900],
           title: const Text('sasta tesla'),
         ),
-        body: Card(
-          child: Flex(
-            direction: Axis.horizontal,
-            children: <Widget>[
-              Column(
-                children: [
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      backgroundColor: Colors.primaries[0],
+        body: Flex(
+          mainAxisAlignment: MainAxisAlignment.center,
+          direction: Axis.horizontal,
+          children: <Widget>[
+            Flex(
+              direction: Axis.horizontal,
+              children: <Widget>[
+                Column(
+                  children: [
+                    const SizedBox(
+                      height: 20,
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const Games()),
-                      );
-                    },
-                    child: const Text('Games'),
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      backgroundColor: Colors.primaries[0],
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.cyan,
+                        backgroundColor: Colors.black,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Games()),
+                        );
+                      },
+                      child: const Text('Games'),
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const Info()),
-                      );
-                    },
-                    child: const Text('Learn more'),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.cyan,
+                        backgroundColor: Colors.black,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Info()),
+                        );
+                      },
+                      child: const Text('Learn more'),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.emergency),
-              label: 'Emergency',
+            const SizedBox(
+              width: 500,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.place),
-              label: 'Places',
+            Row(
+              children: [
+                Flex(
+                  direction: Axis.vertical,
+                  // decoration: const BoxDecoration(
+                  //     border: Border(
+                  //         bottom: BorderSide(color: Colors.black, width: 1))),
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        WindowStyleDropdownMenu(
+                          buttonTitleStyle: const TextStyle(color: Colors.red),
+                          dropdownWidth: 300,
+                          buttonTitle: 'Emergency',
+                          dropdownItems: const [
+                            ListTile(
+                              mouseCursor: SystemMouseCursors.click,
+                              title: Text(
+                                'Doctor',
+                                style: TextStyle(color: Color.fromARGB(255, 214, 242, 246)),
+                              ),
+                            ),
+                            ListTile(
+                              mouseCursor: SystemMouseCursors.click,
+                              title: Text(
+                                'Mechanics',
+                                style: TextStyle(color: Color.fromARGB(255, 214, 242, 246)),
+                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        WindowStyleDropdownMenu(
+                          buttonTitleStyle: const TextStyle(color: Colors.red),
+                          dropdownWidth: 300,
+                          buttonTitle: 'Help',
+                          dropdownItems: const [
+                            ListTile(
+                              mouseCursor: SystemMouseCursors.click,
+                              title: Text(
+                                'Food',
+                                style: TextStyle(color: Color.fromARGB(255, 214, 242, 246)),
+                              ),
+                            ),
+                            ListTile(
+                              mouseCursor: SystemMouseCursors.click,
+                              title: Text(
+                                'Petrol',
+                                style: TextStyle(color: Color.fromARGB(255, 214, 242, 246)),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.amber[800],
-          onTap: _onItemTapped,
         ),
+        backgroundColor: Color.fromARGB(170, 255, 244, 119),
       ),
     );
   }
