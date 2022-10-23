@@ -357,23 +357,36 @@ class _restaurantState extends State<restaurant> {
         backgroundColor: Colors.blueGrey[900],
         title: const Text('Nearest restaurants'),
       ),
-      body: Flex(
-        direction: Axis.vertical,
-        children: <Widget>[
-          TextField(
-            controller: _controller,
-            decoration: const InputDecoration(hintText: 'Enter Title'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                // _futureAlbum = createAlbum(_controller.text);
-              });
-            },
-            child: const Text('Create Data'),
-          ),
-        ],
-      ),
+      body: (flag == 0) ? _buildBody() : _buildBody2(),
+    );
+  }
+
+  Widget _buildBody() {
+    return Flex(
+      direction: Axis.vertical,
+      children: <Widget>[
+        TextField(
+          controller: _controller,
+          decoration: const InputDecoration(hintText: 'Enter Title'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              flag = 1;
+            });
+          },
+          child: const Text('Create Data'),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBody2() {
+    return Flex(
+      direction: Axis.vertical,
+      children: <Widget>[
+        Text(_output),
+      ],
     );
   }
 }
