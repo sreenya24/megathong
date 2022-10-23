@@ -10,7 +10,7 @@ x = data['Zip Code'].values
 # y = np.unique(x, return_counts = True)
 # inp = y[0][np.argmax(y[1])]
 
-inp = input('Enter geographical location: ')
+inp = input('Enter Zip-Code: ')
 inp = int(float(inp))
 
 dist = np.abs(x - inp)
