@@ -72,6 +72,43 @@ class _MyAppState extends State<MyApp> {
                       },
                       child: const Text('Learn more'),
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.cyan,
+                        backgroundColor: Colors.black,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const video()),
+                        );
+                      },
+                      child: const Text('Personalized video'),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.cyan,
+                        backgroundColor: Colors.black,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const stitch()),
+                        );
+                      },
+                      child: const Text('3D visualize'),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                   ],
                 ),
               ],
@@ -102,14 +139,16 @@ class _MyAppState extends State<MyApp> {
                               mouseCursor: SystemMouseCursors.click,
                               title: Text(
                                 'Doctor',
-                                style: TextStyle(color: Color.fromARGB(255, 214, 242, 246)),
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 214, 242, 246)),
                               ),
                             ),
                             ListTile(
                               mouseCursor: SystemMouseCursors.click,
                               title: Text(
                                 'Mechanics',
-                                style: TextStyle(color: Color.fromARGB(255, 214, 242, 246)),
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 214, 242, 246)),
                               ),
                             )
                           ],
@@ -126,14 +165,16 @@ class _MyAppState extends State<MyApp> {
                               mouseCursor: SystemMouseCursors.click,
                               title: Text(
                                 'Food',
-                                style: TextStyle(color: Color.fromARGB(255, 214, 242, 246)),
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 214, 242, 246)),
                               ),
                             ),
                             ListTile(
                               mouseCursor: SystemMouseCursors.click,
                               title: Text(
                                 'Petrol',
-                                style: TextStyle(color: Color.fromARGB(255, 214, 242, 246)),
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 214, 242, 246)),
                               ),
                             )
                           ],
@@ -196,6 +237,56 @@ class _InfoState extends State<Info> {
         child: TextButton(
           onPressed: () {},
           child: const Text('Lesgo'),
+        ),
+      ),
+    );
+  }
+}
+
+class stitch extends StatefulWidget {
+  const stitch({super.key});
+
+  @override
+  State<stitch> createState() => _stitchState();
+}
+
+class _stitchState extends State<stitch> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey[900],
+        title: const Text('stitch'),
+      ),
+      body: Center(
+        child: TextButton(
+          onPressed: () {},
+          child: const Text('Big'),
+        ),
+      ),
+    );
+  }
+}
+
+class video extends StatefulWidget {
+  const video({super.key});
+
+  @override
+  State<video> createState() => _videoState();
+}
+
+class _videoState extends State<video> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey[900],
+        title: const Text('video'),
+      ),
+      body: Center(
+        child: TextButton(
+          onPressed: () {},
+          child: const Text('Create'),
         ),
       ),
     );
